@@ -1,0 +1,13 @@
+[package]
+name = "rcbup-rs"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+libfj = { version = "0.5.3", features = ["robocraft"] }
+argh = { version = "0.1.5" }
+tokio = { version = "1.12.0", features = ["rt", "rt-multi-thread"] }
+reqwest = { version = "0.11.5" }
+serde_json = { version = "1" }
