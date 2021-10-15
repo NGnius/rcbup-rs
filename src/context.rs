@@ -18,6 +18,11 @@ impl Context {
         if self.args.player {
             builder = builder.text_search_type(FactoryTextSearchType::Player);
         }
+        if let Some(max) = self.args.max {
+            if max >= 10 { // don't set very small page sizes because those can be glitchy
+                builder = builder.items_per_page(max as _);
+            }
+        }
         match builder.send().await {
             Err(e) => {
                 eprintln!("Factory search failed: {}", e);
